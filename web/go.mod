@@ -1,9 +1,9 @@
-module github.com/cyrus-and/gdbweb
+module github.com/ItsMeSamey/gdbweb
 
 go 1.18
 
 require (
-	github.com/cyrus-and/gdb v0.0.0-20180213171718-0306a029f42f
+	github.com/ItsMeSamey/gdb v0.0.0-20180213171718-0306a029f42f
 	golang.org/x/net v0.7.0
 )
 

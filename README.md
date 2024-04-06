@@ -19,7 +19,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/cyrus-and/gdb"
+	"github.com/ItsMeSamey/gdb"
 	"io"
 	"os"
 )
@@ -46,7 +46,7 @@ func main() {
 ## Installation
 
 ```
-go get -u github.com/cyrus-and/gdb
+go get -u github.com/ItsMeSamey/gdb
 ```
 
 ## Documentation
@@ -135,7 +135,7 @@ go generate -x
 
 [mi2-bug]: https://sourceware.org/bugzilla/show_bug.cgi?id=8759
 [mi2-syntax]: https://sourceware.org/gdb/onlinedocs/gdb/GDB_002fMI-Output-Syntax.html
-[godoc]: https://godoc.org/github.com/cyrus-and/gdb
+[godoc]: https://godoc.org/github.com/ItsMeSamey/gdb
 [homebrew]: http://brew.sh/
 [gdb-on-mac]: http://sourceware.org/gdb/wiki/BuildingOnDarwin
 [pty]: https://github.com/kr/pty
