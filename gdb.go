@@ -103,6 +103,14 @@ func NewCmd(cmd []string, onNotification NotificationCallback) (*Gdb, error) {
 	return &gdb, nil
 }
 
+// Check connected status of Gdb
+func IsConnected(gdbc *Gdb) error {
+	if gdbc == nil {
+		return errors.New("Gdb is not connected");
+	}
+	return nil
+}
+
 // Read reads a number of bytes from the target program's output.
 func (gdb *Gdb) Read(p []byte) (n int, err error) {
 	return gdb.ptm.Read(p)
@@ -152,14 +160,6 @@ func (gdb *Gdb) Exit() error {
 		}
 	}
 
-	return nil
-}
-
-// Check connected status of Gdb
-func IsConnected(gdbc *Gdb) error {
-	if gdbc == nil {
-		return errors.New("Gdb is not connected");
-	}
 	return nil
 }
 
