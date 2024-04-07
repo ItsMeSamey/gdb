@@ -1,11 +1,12 @@
 package gdb
 
 import (
-	"github.com/kr/pty"
+	"errors"
 	"io"
 	"os"
 	"os/exec"
 	"sync"
+	"github.com/kr/pty"
 )
 
 // Gdb represents a GDB instance. It implements the ReadWriter interface to
@@ -153,3 +154,12 @@ func (gdb *Gdb) Exit() error {
 
 	return nil
 }
+
+// Check connected status of Gdb
+func IsConnected(gdbc *Gdb) error {
+	if gdbc == nil {
+		return errors.New("Gdb is not connected");
+	}
+	return nil
+}
+
