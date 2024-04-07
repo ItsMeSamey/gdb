@@ -106,7 +106,7 @@ func NewCmd(cmd []string, onNotification NotificationCallback) (*Gdb, error) {
 // Check connected status of Gdb
 func IsConnected(gdbc *Gdb) error {
 	if gdbc == nil {
-		return errors.New("Gdb is not connected");
+		return errors.New("Cannot find Gdb executable");
 	}
 	return nil
 }
