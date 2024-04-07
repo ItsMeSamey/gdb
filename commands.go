@@ -56,7 +56,7 @@ func (gdb *Gdb) Send(operation string, arguments ...string) (map[string]interfac
 	return result, nil
 }
 
-func (gdb *Gdb) Raw(operation string, argument string) (map[string]interface{}, error) {
+func (gdb *Gdb) Raw(operation string, argument string, terminator byte = '\n') (map[string]interface{}, error) {
 	// atomically increase the sequence number and queue a pending command
 	pending := make(chan map[string]interface{})
 	gdb.mutex.Lock()
@@ -68,7 +68,9 @@ func (gdb *Gdb) Raw(operation string, argument string) (map[string]interface{}, 
 	// prepare the command
 	buffer := bytes.NewBufferString(fmt.Sprintf("%s%s", sequence, operation))
 	buffer.WriteString(argument)
-	buffer.WriteByte('\n')
+	if terminator != 0 {
+		buffer.WriteByte(terminator)
+	}
 
 	// send the command
 	if _, err := gdb.stdin.Write(buffer.Bytes()); err != nil {
